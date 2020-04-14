@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>cadastro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="form" (submit)="cadastrar()">
+    <ion-item>
+      <ion-label floating>Nome:</ion-label>
+      <ion-input formControlName="nome" name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>CPF:</ion-label>
+      <ion-input formControlName="cpf" name="cpf"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>E-mail:</ion-label>
+      <ion-input formControlName="email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Telefone:</ion-label>
+      <ion-input formControlName="telefone" name="telefone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Cargo:</ion-label>
+      <ion-select formControlName="cargo" name="cargo">
+        <ion-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Salário:</ion-label>
+      <ion-input formControlName="salario" name="salario"></ion-input>
+    </ion-item>
+    <ion-fab bottom right>
+      <button ion-fab mini [disabled]="form.invalid || form.pending">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-fab>
+  </form>
+
+</ion-content>
